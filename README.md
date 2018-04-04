@@ -27,7 +27,6 @@ If you find this work useful in your research, please consider citing:
 3.	Off-road cycling facility
 
 # Step-by-step guide
-TODO
 1.	Open *spatialite_gui* and click on **Files** and **Creating a New (empty) SQLite DB**
 2.	Set a name for the .sqlite file 
 3.	Click on the **Load Shapefile** and select the city’s cycling network shapefile
