@@ -5,14 +5,13 @@ This repository contains the SQL code and sample open data to replicate our upco
 Include abstract here. TODO
 
 # Citation
-If you find this work useful in your research, please consider citing:
+This work is currently under review in a scientific journal. If you find this work useful in your research, please consider citing for now:
 
-    @inproceedings{nabavi-niaki18submitted,
-        Author = {},
-        Title = {},
-        Journal = {},
+    @misc{nabavi-niaki18cycling-discontinuities-git,
+        Author = {Matin Nabavi Niaki and Jean-Simon Bourdeau and Luis Miranda-Moreno and Nicolas Saunier},
+        Title = {Evaluation and Comparing Cycling Network Connectivity of Four Cities Using Discontinuity Indicators},
         Year = {2018},
-        Submitted = {}
+        howpublished = {https://github.com/nsaunier/cycling-discontinuities/}
     }
 
 # Required Software
@@ -22,9 +21,9 @@ If you find this work useful in your research, please consider citing:
 # Required Datasets
 * Cycling network shapefile (this shapefile should have a field named facilities with the different cycling facility types)
 * The cycling network in this example has already been categorized into three facility types:
-1.	Separate cycling facility
-2.	Painted bike lane
-3.	Off-road cycling facility
+    1. Separate cycling facility
+    2. Painted bike lane
+    3. Off-road cycling facility
 
 # Step-by-step guide
 1.	Open *spatialite_gui* and click on **Files** and **Creating a New (empty) SQLite DB**
@@ -50,8 +49,6 @@ If you find this work useful in your research, please consider citing:
        This shapefile contains the ***change in cycling facility type*** points
 
 The two exported shapefiles can be opened with a spatial analyst tool (e.g. ArcGIS, QGIS) to visualize the discontinuity locations. In the spatial analyst tool, the statistical summary tool will show the total number of discontinuities for each discontinuity layer. Otherwise, the exported database table is saved as *end_points.dbf* and *change_points.dbf* with all the discontinuity points.
-
-
 
 # Licence
 This code is released under the MIT License  (refer to the LICENSE file for details).
