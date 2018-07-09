@@ -1,5 +1,7 @@
 # Welcome
-This repository contains the SQL code and sample open data to replicate our upcoming paper on measuring the connectivity of a cycling network using discontinuity indicators. It includes a step-by-step guide for that purpose. 
+This repository contains the SQL code and sample open data to replicate our upcoming paper on measuring the connectivity of a cycling network using discontinuity indicators. The following discontinuities can be automatically extracted from geospatial data: the ends of cycling facilities and the changes in cycling facility type. 
+
+This repository includes a step-by-step guide for that purpose, applied to the Montreal cycling network.
 
 # Abstract
 Include abstract here. TODO
