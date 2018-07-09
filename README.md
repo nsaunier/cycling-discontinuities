@@ -27,7 +27,8 @@ This work is currently under review in a scientific journal. If you find this wo
     2. Painted bike lane
     3. Off-road cycling facility
 
-# Step-by-step guide
+# Step-by-step guide 
+<!-- TODO extract the different sections for Montreal to run against spatialite -->
 1.	Open *spatialite_gui* and click on **Files** and **Creating a New (empty) SQLite DB**
 2.	Set a name for the .sqlite file 
 3.	Click on the **Load Shapefile** and select the city’s cycling network shapefile
@@ -42,7 +43,7 @@ This work is currently under review in a scientific journal. If you find this wo
 12.	Do the same for sections two through six
 
        Note that in **[SECTION THREE]** you may need to change the line **JOIN (SELECT * FROM bike_network_merge)  r**  to **JOIN bike_network_merge r**  if it gives an error
-13.	Once all sections are executed, refresh the **User Data** branch   
+13.	Once all sections are executed, refresh the **User Data** branch
 14.	Click on the **bike_network_merge_dissolve_within_2m** and right click on **geom_point** and select **export as shapefile**, and save it as *end_points.shp*
 
        This shapefile represents the ***end of cycling facilities***
