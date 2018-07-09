@@ -1,5 +1,5 @@
 # Welcome
-This repository contains the SQL code and sample open data to replicate our upcoming paper on measuring the connectivity of a cycling network using discontinuity indicators. It include a step-by-step guide for that purpose. 
+This repository contains the SQL code and sample open data to replicate our upcoming paper on measuring the connectivity of a cycling network using discontinuity indicators. It includes a step-by-step guide for that purpose. 
 
 # Abstract
 Include abstract here. TODO
@@ -51,4 +51,4 @@ This work is currently under review in a scientific journal. If you find this wo
 The two exported shapefiles can be opened with a spatial analyst tool (e.g. ArcGIS, QGIS) to visualize the discontinuity locations. In the spatial analyst tool, the statistical summary tool will show the total number of discontinuities for each discontinuity layer. Otherwise, the exported database table is saved as *end_points.dbf* and *change_points.dbf* with all the discontinuity points.
 
 # Licence
-This code is released under the MIT License  (refer to the LICENSE file for details).
+This code is released under the MIT License (refer to the LICENSE file for details).
