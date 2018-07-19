@@ -2,8 +2,6 @@
 --[SECTION ONE]-------------------------------------
 DROP TABLE IF EXISTS numbers;
 CREATE TABLE numbers (id INTEGER PRIMARY KEY AUTOINCREMENT, n integer);
--- 10000 is the max number of continous segments of the same facility type 
--- (field 'facilities' in the paris data), you might want to add more depending on your network
 WITH RECURSIVE
   cnt(x) AS (
      SELECT 1
@@ -17,7 +15,7 @@ SELECT x FROM cnt;
 
 DROP TABLE IF EXISTS bike_network_merge;
 CREATE TABLE bike_network_merge (id INTEGER PRIMARY KEY AUTOINCREMENT, facilities integer);
-SELECT AddGeometryColumn('bike_network_merge','geom',32188,'MULTILINESTRING','XYZ'); --update Srid and CoordDimension ('XY' or 'XYZ' or 'XYZM')
+SELECT AddGeometryColumn('bike_network_merge','geom',32188,'MULTILINESTRING','XYZM'); 
 
 INSERT INTO bike_network_merge (facilities, geom) 
 SELECT facilities, ST_LineMerge(ST_Collect(geom)) FROM bike_network
@@ -26,28 +24,24 @@ GROUP BY facilities;
 --[SECTION TWO]-------------------------------------
 DROP TABLE IF EXISTS bike_network_merge_dissolve;
 CREATE TABLE bike_network_merge_dissolve (id INTEGER PRIMARY KEY AUTOINCREMENT, n integer, facilities integer);
-SELECT AddGeometryColumn('bike_network_merge_dissolve','geom',32188,'LINESTRING','XYZ');  --update Srid and CoordDimension
-SELECT AddGeometryColumn('bike_network_merge_dissolve','buffer_40m',32188,'MULTIPOLYGON','XYZ');  --update Srid and CoordDimension
+SELECT AddGeometryColumn('bike_network_merge_dissolve','geom',32188,'LINESTRING','XYZM');
+SELECT AddGeometryColumn('bike_network_merge_dissolve','buffer_40m',32188,'MULTIPOLYGON','XYZM');  
 
 --[SECTION THREE]-------------------------------------
 INSERT INTO bike_network_merge_dissolve (n, facilities, geom, buffer_40m)
-SELECT
-l.n, r.facilities,ST_GeometryN(geom,l.n), Buffer(ST_GeometryN(geom,l.n),40)
-FROM
-numbers l
-JOIN (SELECT * FROM bike_network_merge)  r --this line works for montreal but may not work for other cities; if there is an error at this step, use the comment out this line (use --) and use the next line
--- JOIN bike_network_merge r  --this line works for all cities but not montreal 
-ON l.n <= ST_NumGeometries(geom);
-
+SELECT l.n, r.facilities,ST_GeometryN(r.geom,l.n), CastToMultiPolygon(ST_Buffer(ST_GeometryN(r.geom,l.n),40))
+FROM numbers l
+JOIN bike_network_merge r
+ON l.n <= ST_NumGeometries(r.geom);
 
 --[SECTION FOUR]-------------------------------------
 -- create table with start points and endpoints of merged polylines
 -- and create 2 meters and 5 meters buffer along startpoints and endpoints of merged polylines
 DROP TABLE IF EXISTS bike_network_merge_points;
 CREATE TABLE bike_network_merge_points (id INTEGER PRIMARY KEY AUTOINCREMENT, id_link, facilities varchar);
-SELECT AddGeometryColumn('bike_network_merge_points','geom_point',32188,'POINT','XYZ'); --update Srid and CoordDimension
-SELECT AddGeometryColumn('bike_network_merge_points','geom_point_buffer_2m',32188,'POLYGON','XYZ'); --update Srid and CoordDimension
-SELECT AddGeometryColumn('bike_network_merge_points','geom_point_buffer_5m',32188,'POLYGON','XYZ'); --update Srid and CoordDimension
+SELECT AddGeometryColumn('bike_network_merge_points','geom_point',32188,'POINT','XYZM');
+SELECT AddGeometryColumn('bike_network_merge_points','geom_point_buffer_2m',32188,'POLYGON','XYZM'); 
+SELECT AddGeometryColumn('bike_network_merge_points','geom_point_buffer_5m',32188,'POLYGON','XYZM');
 
 INSERT INTO bike_network_merge_points (id_link, facilities, geom_point, geom_point_buffer_2m, geom_point_buffer_5m)
 SELECT id, facilities, ST_StartPoint(geom) as geom_point, 
@@ -77,7 +71,7 @@ AND l.id_link != r.id) b
 WHERE b.id IS NULL
 GROUP BY b.id_link;
 
-SELECT RecoverGeometryColumn('bike_network_merge_dissolve_within_2m', 'geom_point', 32188, 'POINT', 'XYZ'); --update Srid and CoordDimension
+SELECT RecoverGeometryColumn('bike_network_merge_dissolve_within_2m', 'geom_point', 32188, 'POINT', 'XYZM');
 
 --[SECTION SIX]----------------------------------------
 -- spatial intersection between 5 meters buffers and bike network to see if there is another facility (but with a different type) inside the buffer
@@ -94,7 +88,7 @@ AND l.id_link != r.id
 AND l.facilities != r.facilities) b
 GROUP BY b.id_link;
 
-SELECT RecoverGeometryColumn('bike_network_merge_dissolve_within_5m', 'geom_point', 32188, 'POINT', 'XYZ'); --update Srid and CoordDimension
+SELECT RecoverGeometryColumn('bike_network_merge_dissolve_within_5m', 'geom_point', 32188, 'POINT', 'XYZM');
 
 ---------------------------------------
 ---------------------------------------
