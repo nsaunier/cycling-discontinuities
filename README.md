@@ -54,10 +54,10 @@ The two exported shapefiles can be opened with a spatial analyst tool (e.g. ArcG
 Each subdirectory contains 
 * the prepared shapefile for the bike network, with the facilities field and the three facility types considered in the paper
 * the SQL code adapted for each city, with the proper SRID and CoordDimension
-    * SRID for washington D.C. 32146 http://spatialreference.org/ref/epsg/32146/
-    * SRID for portland 32126 http://spatialreference.org/ref/epsg/32126/
-    * SRID for vancouver 32148 http://spatialreference.org/ref/epsg/32148/
-    * SRID for montreal 32188 http://spatialreference.org/ref/epsg/32188/
+    * montreal SRID 32188 (see http://spatialreference.org/ref/epsg/32188/), shapefile available on http://donnees.ville.montreal.qc.ca/
+    * portland SRID 32126 (see http://spatialreference.org/ref/epsg/32126/), shapefile available on http://gis-pdx.opendata.arcgis.com/datasets?t=transportation
+    * vancouver SRID 32148 (see http://spatialreference.org/ref/epsg/32148/), shapefile available on http://data.vancouver.ca/datacatalogue
+    * washington D.C. SRID 32146, (see http://spatialreference.org/ref/epsg/32146/), shapefile available on http://opendata.dc.gov
 * the resulting SpatiaLite database after importing the shapefile and applying the corresponding SQL code
 
 # Licence
