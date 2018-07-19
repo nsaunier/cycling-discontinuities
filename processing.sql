@@ -39,7 +39,7 @@ ON l.n <= ST_NumGeometries(r.geom);
 -- create table with start points and endpoints of merged polylines
 -- and create 2 meters and 5 meters buffer along startpoints and endpoints of merged polylines
 DROP TABLE IF EXISTS bike_network_merge_points;
-CREATE TABLE bike_network_merge_points (id INTEGER PRIMARY KEY AUTOINCREMENT, id_link, facilities varchar);
+CREATE TABLE bike_network_merge_points (id INTEGER PRIMARY KEY AUTOINCREMENT, id_link, facilities integer);
 SELECT AddGeometryColumn('bike_network_merge_points','geom_point',SRID,'POINT','CoordDimension'); --update Srid and CoordDimension
 SELECT AddGeometryColumn('bike_network_merge_points','geom_point_buffer_2m',SRID,'POLYGON','CoordDimension'); --update Srid and CoordDimension
 SELECT AddGeometryColumn('bike_network_merge_points','geom_point_buffer_5m',SRID,'POLYGON','CoordDimension'); --update Srid and CoordDimension
