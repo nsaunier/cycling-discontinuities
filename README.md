@@ -11,7 +11,7 @@ This work is currently under review in a scientific journal. If you find this wo
 
     @misc{nabavi-niaki18cycling-discontinuities-git,
         Author = {Matin Nabavi Niaki and Jean-Simon Bourdeau and Luis Miranda-Moreno and Nicolas Saunier},
-        Title = {Evaluation and Comparing Cycling Network Connectivity of Four Cities Using Discontinuity Indicators},
+        Title = {Cycling network discontinuities as indicators for performance evaluation: Case study in four cities},
         Year = {2018},
         howpublished = {https://github.com/nsaunier/cycling-discontinuities/}
     }
