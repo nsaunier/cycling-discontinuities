@@ -4,7 +4,8 @@ This repository contains the SQL code and sample open data to replicate our upco
 This repository includes a step-by-step guide for that purpose, applied to the Montreal cycling network.
 
 # Abstract
-Include abstract here. TODO
+The evaluation of the performance of a cycling network relies on a set of indicators, with the goal of better planning future networks or improving existing ones. There are several evaluation methods, each with its set of indicators, none of which provides a complete picture of the cycling network performance. For example, most studies have relied only on the coverage as an indicator for network performance, while others focused on accessibility. The lack of a uniform evaluation system which includes all relevant performance indicators may result in biased rankings. Reviewing existing evaluation methods, it further appears that connectivity or discontinuity indicators have not been systematically identified and are missing from many evaluation methods. Discontinuities can be either intrinsic to the cycling facilities and the cycling network, such as changes in the type of facility or end of facilities, or related to changes in the cycling network environment, in particular the usually adjacent road network and motorized traffic.
+This paper formalizes the concept of discontinuities in the cycling network and the various causes of discontinuities, proposes a set of indicators to measure cycling network connectivity and the methodology to calculate them, including automated methods for geospatial data with the code available under an open-source licence. The automated method is applied to the comparison of the cycling network connectivity of four North American cities: Montreal and Vancouver in Canada, Portland, and Washington D.C. in the United States. 
 
 # Citation
 This work is currently under review in a scientific journal. If you find this work useful in your research, please consider citing for now:
@@ -12,7 +13,7 @@ This work is currently under review in a scientific journal. If you find this wo
     @misc{nabavi-niaki18cycling-discontinuities-git,
         Author = {Matin Nabavi Niaki and Jean-Simon Bourdeau and Luis Miranda-Moreno and Nicolas Saunier},
         Title = {Cycling network discontinuities as indicators for performance evaluation: Case study in four cities},
-        Year = {2018},
+        Year = {2022},
         howpublished = {https://github.com/nsaunier/cycling-discontinuities/}
     }
 
