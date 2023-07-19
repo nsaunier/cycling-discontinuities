@@ -8,8 +8,15 @@ The evaluation of the performance of a cycling network relies on a set of indica
 This paper formalizes the concept of discontinuities in the cycling network and the various causes of discontinuities, proposes a set of indicators to measure cycling network connectivity and the methodology to calculate them, including automated methods for geospatial data with the code available under an open-source licence. The automated method is applied to the comparison of the cycling network connectivity of four North American cities: Montreal and Vancouver in Canada, Portland, and Washington D.C. in the United States. 
 
 # Citation
-This work is currently under review in a scientific journal. If you find this work useful in your research, please consider citing for now:
+This work has been presented at the 16th World Congress on Transportation Research (2023). If you find this work useful in your research, please consider citing:
 
+    @InProceedings{nabavi-niaki23cycling,
+      author    = {M. {Nabavi Niaki} and J.-S. Bourdeau and L.F. Miranda-Moreno and N. Saunier},
+      title     = {Cycling Network Discontinuities as Indicators for Performance Evaluation: Case Study in Four Cities},
+      booktitle = wctr,
+      year      = {2023},
+      month     = jul,
+    }
     @misc{nabavi-niaki18cycling-discontinuities-git,
         Author = {Matin Nabavi Niaki and Jean-Simon Bourdeau and Luis Miranda-Moreno and Nicolas Saunier},
         Title = {Cycling network discontinuities as indicators for performance evaluation: Case study in four cities},
